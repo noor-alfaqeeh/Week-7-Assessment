@@ -23,9 +23,21 @@ Output =>
 
 */
 
-function MultiByNum1OrNum2() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function MultiByNum1OrNum2(arrOfNum2,num1,num2) {
+  // WRITE YOUR CODE UNDER THIS LINE 
+  var arr = arrOfNum2.map(function(num){
+    if (num%num1==0){
+      return num*num1;
+    }
+    else {return num*num2;}
+  })
+  return arr;
+
 }
+
+var arrOfNum1 = [1,5,2];
+MultiByNum1OrNum2(arrOfNum1,2,6);
+
 
 /* Q2:
 Using Filter
@@ -58,9 +70,14 @@ Output =>
 ]
 */
 
-function longerAndYounger() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+function longerAndYounger(arrOfObj1,num1,num2) {
+  // WRITE YOUR CODE UNDER THIS LINE
+  var long = arrOfObj1.filter(obj=>obj.name.length>num1 && obj.age<num2);
+  return long;
 }
+console.log(longerAndYounger(arrOfObj1,4,30));
+
+
 
 /* Q3:
 Using Reduce
@@ -89,9 +106,28 @@ Output =>
 "alice, fried chiken, pizaa, burger, hot dog, eggs"
   
 */
-function nameAndAllFoods() {
-  // WRITE YOUR CODE UNDER THIS LINE         
+
+
+function nameAndAllFoods(arrOfObj2, num) {
+ 
+  var arr = arrOfObj2.reduce((acc, cv) => {
+    return acc + ", " + cv.food
+  }, arrOfObj2[num].name)
+
+
+  return arr;
 }
+
+var arrOfObj2 = [
+  { name: "alex", food: "fried chiken" },
+  { name: "mercer", food: "pizaa" },
+  { name: "alice", food: "burger" },
+  { name: "zaheer", food: "hot dog" },
+  { name: "elizabeth", food: "eggs" }
+]
+
+nameAndAllFoods(arrOfObj2,0)
+
 
 
 /*
